@@ -76,34 +76,53 @@ public class AddTwoNumbers {
     }
 }
 class Solution {
+
+    /**
+     * @Status:Accepted
+     * @Runtime:23 ms
+     * @Memory:47.9 MB
+     */
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode result = new ListNode(1);
-        double i1 = 0D;
-        double i2 = 0D;
-        double aux = 1D;
-        while(l1 != null){
-            i1 += l1.val * aux;
-            aux *= 10D;
-            l1 = l1.next;
+        ListNode temp = result;
+        int tempNum = 0;
+        while(true){
+            if(l1 == null && l2 == null){
+                if(tempNum == 1){
+                    temp.next = new ListNode(1);
+                }
+                return result.next;
+            }
+            if(l1 != null && l2 != null) {
+                temp.next = new ListNode((l1.val + l2.val + tempNum) % 10);
+                if((l1.val + l2.val + tempNum) >= 10){
+                    tempNum = 1;
+                }else{
+                    tempNum = 0;
+                }
+            }
+            if(l1 == null && l2 != null){
+                temp.next = new ListNode((l2.val + tempNum) % 10 );
+                if(l2.val + tempNum < 10){
+                    temp.next.next = l2.next;
+                    return result.next;
+                }
+            }
+
+            if(l1 != null && l2 == null){
+                temp.next = new ListNode((l1.val + tempNum) % 10 );
+                if(l1.val + tempNum < 10){
+                    temp.next.next = l1.next;
+                    return result.next;
+                }
+            }
+            if(l1 != null)
+                l1 = l1.next;
+            if(l2 != null){
+                l2 = l2.next;
+            }
+            temp = temp.next;
         }
-        aux = 1D;
-        while(l2 != null){
-            i2 += l2.val * aux;
-            aux *= 10D;
-            l2 = l2.next;
-        }
-        aux = 10D;
-        Double temp = i1 + i2;
-        System.out.println(temp);
-        ListNode head = result;
-        while(temp / aux >= 1D){
-            Double val = temp % aux;
-            result.next = new ListNode(val.intValue());
-            temp /= aux;
-            result = result.next;
-        }
-        result.next = new ListNode(temp.intValue());
-        return head.next;
     }
 
 
