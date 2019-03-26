@@ -1,5 +1,13 @@
 package com.leetcode.algorithms.MediumMode;
 
+import com.google.gson.Gson;
+import com.leetcode.Utils.AESUtil;
+import com.leetcode.Utils.Encodes;
+
+import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author YHW
  * @ClassName: ValidParentheses
@@ -67,5 +75,30 @@ public class StringtoInteger_atoi {
     public static void main(String[] args){
 
         System.out.println(myAtoi("2147483648"));
+
+        //访问接口的代码
+        Map map = new HashMap();
+
+        //map.put("dateLine", "2019-3-22");
+        //map.put("phoneNum", "17372216333");
+        //map.put("amount", "2000");
+        //map.put("serialNum", "8190319161352113");
+        //map.put("merchantNo", "17033681");
+        Gson gson = new Gson();
+        String result = gson.toJson(map);
+        System.out.println(result);
+        byte[] aesResult = AESUtil.encrypt(result, "1");
+        String encryptResultStr = AESUtil.parseByte2HexStr(aesResult);
+        String sign = Encodes.md5Encode(Encodes.md5Encode(result));
+
+
+        System.out.println("sign:"+sign);
+        System.out.println("data:"+encryptResultStr);
+
+
+        //接口这样接收
+        byte[] decryptFrom = AESUtil.parseHexStr2Byte(encryptResultStr);
+        String r = new String(AESUtil.decrypt(decryptFrom, "1"));
+        System.out.println("真实数据:"+new String(AESUtil.decrypt(decryptFrom, "1")));
     }
 }
