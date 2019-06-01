@@ -36,34 +36,6 @@ public class MyPow {
         double r = myPow(x, n/2);
         return r * r;
     }
-    //此法会栈溢出
-    public double myPow1(double x, int n) {
-        if(n == Integer.MIN_VALUE && x >= 2) {
-            return 0;
-        }
-        Double result = x;
-        try{
-            result = pow(x, 1.0, n, 1);
-        }catch(StackOverflowError error){
-            error.printStackTrace();
-        }
-        return result;
-    }
-    public double pow(double x, double result, int n, int step){
-        if(n < 0){
-            result /= x;
-        }else if(n > 0){
-            result *= x;
-        }else{
-            return result;
-        }
-
-        if(n == step || n == -step){
-            return result;
-        }
-        result = pow (x, result, n, step+1);
-        return result;
-    }
 
     public static void main(String[] args) {
         MyPow p = new MyPow();
