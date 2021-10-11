@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+    <bean id="TestBean" class="com.leetcode.algorithms.Custom.JavaIOC.SimpleIOC">
+        <property name="beanId" value="111"/>
+        <property name="beanName" value="测试bean" />
+    </bean>
+</beans>
