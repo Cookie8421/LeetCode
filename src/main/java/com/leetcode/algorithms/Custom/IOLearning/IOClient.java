@@ -1,4 +1,4 @@
-package com.leetcode.algorithms.Custom;
+package com.leetcode.algorithms.Custom.IOLearning;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 

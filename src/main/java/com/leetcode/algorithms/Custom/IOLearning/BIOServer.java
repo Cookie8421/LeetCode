@@ -1,4 +1,4 @@
-package com.leetcode.algorithms.Custom;
+package com.leetcode.algorithms.Custom.IOLearning;
 
 import java.io.IOException;
 import java.io.InputStream;
