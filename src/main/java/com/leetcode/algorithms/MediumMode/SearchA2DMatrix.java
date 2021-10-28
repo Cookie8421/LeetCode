@@ -10,7 +10,7 @@ package com.leetcode.algorithms.MediumMode;
  *
  *     Integers in each row are sorted from left to right.
  *     The first integer of each row is greater than the last integer of the previous row.
- * @date 2021/10/11 11:04
+ * @date 2021/10/28 11:04
  */
 
 public class SearchA2DMatrix {
