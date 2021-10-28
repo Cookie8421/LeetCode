@@ -1,12 +1,9 @@
 package com.leetcode.algorithms.MediumMode;
 /**
  * @author YHW
- * @ClassName: AddTwoNumbers
+ * @ClassName: MyPow
  * @Description:
- * You are given two non-empty linked lists representing two non-negative integers.
- * The digits are stored in reverse order and each of their nodes contain a single digit.
- * Add the two numbers and return it as a linked list.
- * You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+ * Implement pow(x, n), which calculates x raised to the power n (i.e., xn).
  * @date 2019/6/1 15:13
  */
 public class MyPow {
