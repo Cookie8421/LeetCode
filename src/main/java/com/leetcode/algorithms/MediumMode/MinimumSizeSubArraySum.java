@@ -1,6 +1,16 @@
 package com.leetcode.algorithms.MediumMode;
 
-public class MinimumSizeSubarraySum {
+
+/**
+ * @author YHW
+ * @ClassName: MinimumSizeSubArraySum
+ * @Description:
+ * Given an array of positive integers nums and a positive integer target,
+ * return the minimal length of a contiguous subarray [numsl, numsl+1, ..., numsr-1, numsr] of which the sum is greater than or equal to target.
+ * If there is no such subarray, return 0 instead.
+ * @date 2021/10/11 11:04
+ */
+public class MinimumSizeSubArraySum {
 
 
     /**
@@ -49,6 +59,6 @@ public class MinimumSizeSubarraySum {
     }
 
     public static void main(String[] args) {
-        System.out.println(MinimumSizeSubarraySum.minSubArrayLen(15,new int[]{5,1,3,5,10,7,4,9,2,8}));
+        System.out.println(MinimumSizeSubArraySum.minSubArrayLen(15,new int[]{5,1,3,5,10,7,4,9,2,8}));
     }
 }
