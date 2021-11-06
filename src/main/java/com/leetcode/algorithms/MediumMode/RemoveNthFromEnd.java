@@ -4,6 +4,14 @@ import org.apache.commons.lang3.ArrayUtils;
 
 import java.util.Stack;
 
+/**
+ * @author JoeyYoung
+ * @ClassName: PathSum
+ * @Description:
+ * Given the head of a linked list, remove the nth node from the end of the list and return its head.
+ * @date 2021/11/6 15:45
+ */
+
 public class RemoveNthFromEnd {
     public static class ListNode {
         int val;
