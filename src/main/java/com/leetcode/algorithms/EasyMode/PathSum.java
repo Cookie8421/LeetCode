@@ -24,7 +24,39 @@ public class PathSum {
         }
     }
 
+    /**
+     *
+     * Runtime: 0 ms, faster than 100.00% of Java online submissions for Path Sum.
+     * Memory Usage: 38.8 MB, less than 86.25% of Java online submissions for Path Sum.
+     *
+     */
     public static boolean hasPathSum(TreeNode root, int targetSum) {
+        if(root == null){
+            return false;
+        }
+        if(root.left == null && root.right == null && root.val == targetSum){
+            return true;
+        }
+        if(root.left != null && check(root.left, targetSum, root.val)){
+            return true;
+        }
+        if(root.right != null && check(root.right, targetSum, root.val)){
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean check(TreeNode current, int targetSum, int sum){
+        sum += current.val;
+        if(current.left == null && current.right == null && sum == targetSum){
+            return true;
+        }
+        if(current.left != null && check(current.left, targetSum, sum)){
+            return true;
+        }
+        if(current.right != null && check(current.right, targetSum, sum)){
+            return true;
+        }
         return false;
     }
 
