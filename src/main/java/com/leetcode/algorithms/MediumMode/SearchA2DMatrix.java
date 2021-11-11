@@ -42,7 +42,7 @@ public class SearchA2DMatrix {
         if(matrix[row][leftIndex] == target || matrix[row][rightIndex] == target){
             return true;
         }
-        while(rightIndex > leftIndex+1){
+        while(rightIndex > leftIndex + 1){
             if(matrix[row][midIndex] == target){
                 return true;
             } else if(matrix[row][midIndex] > target) {
