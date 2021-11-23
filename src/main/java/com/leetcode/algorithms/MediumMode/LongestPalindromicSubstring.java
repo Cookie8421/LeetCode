@@ -54,4 +54,64 @@ public class LongestPalindromicSubstring {
         String a = "cccabababa";
         System.out.println(longestPalindrome(a));
     }
+
+    /**
+     * Optimized Solution for continuous repeating characters.
+     * Expand Palindrome around center.
+     *
+     * Time Complexity: O(N^2)
+     *
+     * Space Complexity: O(1)
+     *
+     * N = Length of the input string s.
+     */
+    //Better Solution:
+    /*class Solution {
+    public String longestPalindrome(String s) {
+        if (s == null) {
+            throw new IllegalArgumentException("Input is null");
+        }
+
+        int len = s.length();
+        if (len <= 1) {
+            return s;
+        }
+
+        int[] maxStartOffset = new int[] { 0, 1 };
+        int i = 0;
+
+        while (i < len) {
+            int start = i++;
+			// Finding the continuous repeating characters
+            // We can optimize by finding all such chars and treat them as the palindrome
+            // center for the next expandPalindrome call.
+            while (i < len && s.charAt(i) == s.charAt(start)) {
+                i++;
+            }
+            // Expanding palindrome around the center defined by [start, i-1]
+            expandPalindrome(s, start - 1, i, maxStartOffset);
+
+            // Early Exit Condition
+            // Remaining Characters = len - i - 1
+            // Longest palindrome possible using remaining chars = (len - i - 1) * 2
+            // We can safely exit if current maxStartOffset[1] >= (len - i - 1) * 2
+            if (maxStartOffset[1] >= (len - i - 1) * 2) {
+                break;
+            }
+        }
+
+        return s.substring(maxStartOffset[0], maxStartOffset[0] + maxStartOffset[1]);
+    }
+
+    private void expandPalindrome(String s, int left, int right, int[] maxStartOffset) {
+        while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
+            left--;
+            right++;
+        }
+        if (right - left - 1 > maxStartOffset[1]) {
+            maxStartOffset[0] = left + 1;
+            maxStartOffset[1] = right - left - 1;
+        }
+    }
+}*/
 }
