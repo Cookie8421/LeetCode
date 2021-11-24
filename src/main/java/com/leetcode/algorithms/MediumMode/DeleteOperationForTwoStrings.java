@@ -34,8 +34,6 @@ public class DeleteOperationForTwoStrings {
      * indexArray[1]:Index of longestSubstr in word2
      * indexArray[2]:Length of longestSubstr
      */
-    int[] indexArray = new int[]{0, 0, 0};
-
     public static int minDistance(String s1, String s2) {
         int[][] memo = new int[s1.length() + 1][s2.length() + 1];
         return s1.length() + s2.length() - 2 * lcs(s1, s2, s1.length(), s2.length(), memo);
