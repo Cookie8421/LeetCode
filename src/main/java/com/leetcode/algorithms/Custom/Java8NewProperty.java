@@ -37,6 +37,23 @@ public class Java8NewProperty {
 
 
         System.out.println(result);
+
+
+        //Lambda
+        MathOperation addition = (int a, int b) -> a + b;
+        MathOperation subtraction = (a, b) -> a - b;
+        GreetingService greetService1 = message ->
+                System.out.println("Hello " + message);
+
+        Java8NewProperty tester = new Java8NewProperty();
+        System.out.println("10 + 5 = " + tester.operate(10, 5, addition));
+        System.out.println("10 - 5 = " + tester.operate(10, 5, subtraction));
+
+        //lambda 表达式的局部变量可以不用声明为 final，但是必须不可被后面的代码修改（即隐性的具有final 的语义）
+        final int num = 1;
+        Converter<Integer, String> s = (param) -> System.out.println(param + num);
+        s.convert(2);
+
     }
 
     private static boolean isNum(String i) {
@@ -72,4 +89,20 @@ public class Java8NewProperty {
                 .map( i -> i.getName() )
                 .orElse( "未找到该道路名" );
     }*/
+
+
+    interface MathOperation {
+        int operation(int a, int b);
+    }
+    interface GreetingService {
+        void sayMessage(String message);
+    }
+    private int operate(int a, int b, MathOperation mathOperation) {
+        return mathOperation.operation(a, b);
+    }
+
+    public interface Converter<T1, T2> {
+        void convert(int i);
+    }
+
 }
