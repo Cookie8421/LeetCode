@@ -6,7 +6,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Calendar;
 
-public class Test {
+public class PictureGen {
 
     private static void uploadCertificate(){
         String tTradeNo = "JK";
