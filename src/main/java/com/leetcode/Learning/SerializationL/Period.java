@@ -29,10 +29,20 @@ public class Period implements Serializable {
         this.end = end;
     }
 
+    //进行保护性拷贝，客户端不应该获得对象内属性的真实引用
+    public Date getStart(){
+        return new Date(this.start.getTime());
+    }
+
+    //进行保护性拷贝，客户端不应该获得对象内属性的真实引用
+    public Date getEnd(){
+        return new Date(this.end.getTime());
+    }
+
 
     public void readObject(ObjectInputStream stream) throws IOException,ClassNotFoundException {
         stream.defaultReadObject();
-        //进行保护性拷贝，防止反序列化新建出来对象被恶意篡改
+        //进行保护性拷贝，客户端不应该获得对象内属性的真实引用
         start = new Date(start.getTime());
         end = new Date(end.getTime());
         if(start.after(end)){
