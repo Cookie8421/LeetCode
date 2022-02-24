@@ -1,6 +1,6 @@
 package com.leetcode.Learning.Note;
 
-public class EffectiveJava {
+public class EffectiveJavaNote {
     /**
      * - 如何设计类结构：
      *     - 1.静态工厂方法（优点：顾名思义的，单例的，返回类型可以根据不同的入参提供不同的子类对象）；
@@ -43,7 +43,7 @@ public class EffectiveJava {
      *         - 目标：
      *             - 为不相等的实例“均匀地”生成不同的哈希码；
      *             - 确保相同的实例的哈希码一定一致；
-     *         - 最佳实践()：
+     *         - 最佳实践：
      *             - 如果是基本类型的属性，使用Type.hashCode(f)；（Type为对应的包装类）
      *             - 推荐使用AutoValue框架进行单元测试
      *             - 如果不可变类的哈希码获取代价很大，可以考虑延迟初始化并缓存哈希码，但需要注意线程安全
@@ -57,7 +57,23 @@ public class EffectiveJava {
      *          }
      *     - 12.始终重写toString()
      *     - 13.重写clone()
-     *          - 目标：
-     *              -
+     *          - 非严格规范：
+     *              - x.clone() != x
+     *              - x.clone().getClass() == x.getClass()
+     *              - x.clone().equals(x)
+     *              - 绝不能调用一个可以被重写的方法
+     *              - 写子类时不要实现Closable
+     *              - 线程安全的类中的clone也必须是正确同步的
+     *          - 最佳实践：
+     *              - 返回类型是该类本身
+     *              - 先调用super.clone
+     *              - 修复所有需要修复属性的深层结构
+     *              - 如果类只包含基本类型或对不可变对象的引用，那么很可能是没有属性需要修复的情况。
+     *
+     *      - 14.考虑实现 Comparable 接口
+     *          - 实现类必须确保所有 x 和 y 都满足 sgn(x.compareTo(y)) == -sgn(y. compareTo(x))
+     *          - 实现类还必须确保该关系是可传递的： (x. compareTo(y) > 0 && y.compareTo(z) > 0)
+     *          - 实现类必须确保 x.compareTo(y) == 0 意味着 sgn(x.compareTo(z)) == sgn(y.compareTo(z))
+     *          -
      */
 }
