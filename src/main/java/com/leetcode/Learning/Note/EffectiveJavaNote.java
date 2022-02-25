@@ -71,9 +71,31 @@ public class EffectiveJavaNote {
      *              - 如果类只包含基本类型或对不可变对象的引用，那么很可能是没有属性需要修复的情况。
      *
      *      - 14.考虑实现 Comparable 接口
-     *          - 实现类必须确保所有 x 和 y 都满足 sgn(x.compareTo(y)) == -sgn(y. compareTo(x))
-     *          - 实现类还必须确保该关系是可传递的： (x. compareTo(y) > 0 && y.compareTo(z) > 0)
-     *          - 实现类必须确保 x.compareTo(y) == 0 意味着 sgn(x.compareTo(z)) == sgn(y.compareTo(z))
+     *          - 规范：
+     *              - 实现类必须确保所有 x 和 y 都满足 sgn(x.compareTo(y)) == -sgn(y. compareTo(x))
+     *              - 实现类还必须确保该关系是可传递的： (x. compareTo(y) > 0 && y.compareTo(z) > 0)
+     *              - 实现类必须确保 x.compareTo(y) == 0 意味着 sgn(x.compareTo(z)) == sgn(y.compareTo(z))
+     *              建议：- compareTo 方法施加的顺序被认为与 equals 相一致。
+     *      - 15.使类的可访问性最小化
+     *          - 隐藏信息：松耦合，增加重用性，让类尽可能的不可访问
+     *          - 最佳实践：
+     *              - 少用public修饰
+     *              - java9的module system允许包之间的可访问且不对全局开放
+     *              - 最小化的公共API
+     *      - 16.用setter/getter代替直接使用属性
+     *      - 17.最小化可变性
+     *          - 设置不可变类：
+     *              - 不提供setter
+     *              - 保证不被继承
+     *              - 字段设为final
+     *              - 字段设为private
+     *              - 如果你的类有任何引用可变对象的字段，请确保该类的客户端无法获得对这些对象的引用
+     *              - 如果一个类不能设计为不可变类，那么也要尽可能地限制它的可变性
+     *              - 除非有充分的理由不这样做，否则应该把每个属性声明为私有 final 的
+     *              - 构造方法应该创建完全初始化的对象，并建立所有的不变性。
+     *       - 18.组合优于继承
+     *          - 继承打破了封装,父类一旦改变，子类的实现会被破坏
+     *          - 只有在两个类之间存在「is-a」关系的情况下，B 类才能继承 A 类
      *          -
      */
 }
