@@ -1,16 +1,12 @@
 package com.leetcode.Learning.Note;
 
 import java.util.Collection;
-import java.util.HashSet;
+import java.util.Set;
 
-// Broken - Inappropriate use of inheritance!
-public class InstrumentedHashSet<E> extends HashSet<E> {
-    // The number of attempted element insertions
+public class InstrumentedHashSet<E> extends ForwardingSet<E> {
     private int addCount = 0;
-    public InstrumentedHashSet() {
-    }
-    public InstrumentedHashSet(int initCap, float loadFactor) {
-        super(initCap, loadFactor);
+    public InstrumentedHashSet(Set<E> s) {
+        super(s);
     }
     @Override public boolean add(E e) {
         addCount++;
