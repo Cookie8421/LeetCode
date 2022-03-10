@@ -82,9 +82,16 @@ public class EffectiveJavaNote {
      *              - 少用public修饰
      *              - java9的module system允许包之间的可访问且不对全局开放
      *              - 最小化的公共API
+     *              - 获得不可变数组：
+     *                  - private static final Thing[] PRIVATE_VALUES = { ... };
+     *                      public static final List<Thing> VALUES = Collections.unmodifiableList(Arrays.asList(PRIVATE_VALUES));
+     *                  - private static final Thing[] PRIVATE_VALUES = { ... };
+     *                    public static final Thing[] values() {
+     *                      return PRIVATE_VALUES.clone();
+     *                    }
      *      - 16.用setter/getter代替直接使用属性
      *      - 17.最小化可变性
-     *          - 设置不可变类：
+     *          - 设置不可变类（线程安全的）：
      *              - 不提供setter
      *              - 保证不被继承
      *              - 字段设为final
@@ -95,7 +102,12 @@ public class EffectiveJavaNote {
      *              - 构造方法应该创建完全初始化的对象，并建立所有的不变性。
      *       - 18.组合优于继承
      *          - 继承打破了封装,父类一旦改变，子类的实现会被破坏
-     *          - 只有在两个类之间存在「is-a」关系的情况下，B 类才能继承 A 类
+     *          - 只有在两个类之间存在「is-a」关系的情况下，B类才继承A类
+     *       - 19.继承时必须提供父类方法的重写规则
+     *          - 测试为继承而设计的类的唯一方法是编写子类
+     *          - 在发布它之前，你必须通过编写子类来测试你的类
+     *          - 构造方法绝不能直接或间接调用可重写的方法
      *          -
+     *
      */
 }
