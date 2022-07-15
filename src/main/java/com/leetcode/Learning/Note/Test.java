@@ -67,6 +67,12 @@ public class Test {
         String[] strArr = new String[]{"a", "b", "c"};
         System.out.println(Arrays.stream(strArr).collect(Collectors.joining(",")));
         */
-        System.out.println(Integer.parseInt("0002"));
+        /*String[] s = "the     sky is    blue".split("\\s+");
+        for(int i = 0; i < s.length; i++){
+            System.out.println(s[i] + "!");
+        }*/
+        /*int[][] l = new int[][]{{7,17},{8,4},{9,20},{10,7},{11,15}};
+        Arrays.sort(l, (a, b) -> (a[1] != b[1]) ? a[1] - b[1] : a[0] - b[0]);
+        System.out.println(l[2][0]);*/
     }
 }
