@@ -85,6 +85,33 @@ public class SortIntegersByThePowerValue {
         return count;
     }
 
+
+    /**
+     * dp solution:
+     * class Solution {
+     *     HashMap<Integer, Integer> mem = new HashMap();
+     *     public int getKth(int lo, int hi, int k) {
+     *         int[][] l = new int[hi - lo + 1][2];
+     *         for (int i = lo; i <= hi; i++) {
+     *             l[i - lo][0] = i;
+     *             l[i - lo][1] = powerValue(i);
+     *         }
+     *
+     *         Arrays.sort(l, (a, b) -> (a[1] != b[1]) ? a[1] - b[1] : a[0] - b[0]);
+     *         return l[k - 1][0];
+     *     }
+     *
+     *     private int powerValue(int num) {
+     *         if (num == 1) return 0;
+     *         if (mem.containsKey(num)) return mem.get(num);
+     *         int steps = 0;
+     *         if (num % 2 == 0) steps = 1 + powerValue(num / 2);
+     *         else steps = 1 + powerValue(num * 3 + 1);
+     *         mem.put(num, steps);
+     *         return steps;
+     *     }
+     * }
+     */
     /*public int getKth(int lo, int hi, int k) {
         int[] resArr = new int[hi-lo+1];
         int[] indexArr = new int[hi-lo+1];
