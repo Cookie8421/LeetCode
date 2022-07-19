@@ -7,11 +7,21 @@ package com.leetcode.Learning.Note;
  * 0 - 0000000000 0000000000 0000000000 0000000000 0 - 00000 - 00000 - 000000000000 <br>
  * 1位标识，由于long基本类型在Java中是带符号的，最高位是符号位，正数是0，负数是1，所以id一般是正数，最高位是0<br>
  * 41位时间截(毫秒级)，注意，41位时间截不是存储当前时间的时间截，而是存储时间截的差值（当前时间截 - 开始时间截)
- * 得到的值），这里的的开始时间截，一般是我们的id生成器开始使用的时间，由我们程序来指定的（如下下面程序IdWorker类的startTime属性）。41位的时间截，可以使用69年，年T = (1L << 41) / (1000L * 60 * 60 * 24 * 365) = 69<br>
+ * 得到的值），这里的的开始时间截，一般是我们的id生成器开始使用的时间，由我们程序来指定的（如下下面程序IdWorker类的startTime属性）。
+ * 41位的时间截，可以使用69年，年T = (1L << 41) / (1000L * 60 * 60 * 24 * 365) = 69<br>
  * 10位的数据机器位，可以部署在1024个节点，包括5位datacenterId和5位workerId<br>
  * 12位序列，毫秒内的计数，12位的计数顺序号支持每个节点每毫秒(同一机器，同一时间截)产生4096个ID序号<br>
  * 加起来刚好64位，为一个Long型。<br>
  * SnowFlake的优点是，整体上按照时间自增排序，并且整个分布式系统内不会产生ID碰撞(由数据中心ID和机器ID作区分)，并且效率较高，经测试，SnowFlake每秒能够产生26万ID左右。
+ *
+ *
+ * 雪花算法提供了一个很好的设计思想，雪花算法生成的ID是趋势递增，不依赖数据库等第三方系统，
+ * 以服务的方式部署，稳定性更高，生成ID的性能也是非常高的，而且可以根据自身业务特性分配bit位，非常灵活。
+ * 但是雪花算法强依赖机器时钟，如果机器上时钟回拨，会导致发号重复或者服务会处于不可用状态。
+ * 如果恰巧回退前生成过一些ID，而时间回退后，生成的ID就有可能重复。
+ * 官方对于此并没有给出解决方案，而是简单的抛错处理，这样会造成在时间被追回之前的这段时间服务不可用。
+ * 很多其他类雪花算法也是在此思想上的设计然后改进规避它的缺陷，
+ * 后面介绍的百度 UidGenerator 和 美团分布式ID生成系统 Leaf 中snowflake模式都是在 snowflake 的基础上演进出来的。
  */
 public class SnowflakeDistributeId {
 
@@ -170,7 +180,7 @@ public class SnowflakeDistributeId {
 
     public static void main(String[] args) {
         SnowflakeDistributeId idWorker = new SnowflakeDistributeId(0, 0);
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 10; i++) {
             long id = idWorker.nextId();
         //System.out.println(Long.toBinaryString(id));
             System.out.println(id);
