@@ -1,4 +1,4 @@
-package com.leetcode.Learning.Note;
+package com.leetcode.algorithms.EasyMode;
 
 import java.util.ArrayList;
 import java.util.Arrays;
