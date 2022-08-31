@@ -1,4 +1,4 @@
-package com.leetcode.algorithms.EasyMode;
+package com.leetcode.algorithms.MediumMode;
 
 import java.nio.charset.StandardCharsets;
 
