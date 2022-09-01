@@ -48,13 +48,13 @@ public class BinaryTreeInorderTraversal {
     }
 
     public List<Integer> inorderTraversal(TreeNode root) {
+        /**
+         * Runtime: 2 ms, faster than 50.10% of Java online submissions for Binary Tree Inorder Traversal.
+         * Memory Usage: 42.8 MB, less than 9.83% of Java online submissions for Binary Tree Inorder Traversal.
+         */
         List<Integer>list=new ArrayList<>();
         Stack<TreeNode>stack=new Stack<>();
         while(!stack.empty() || root!=null){
-            /**
-             * Runtime: 2 ms, faster than 50.10% of Java online submissions for Binary Tree Inorder Traversal.
-             * Memory Usage: 42.8 MB, less than 9.83% of Java online submissions for Binary Tree Inorder Traversal.
-             */
             while(root!=null){
                 stack.push(root);
                 root=root.left;
