@@ -68,6 +68,27 @@ public class PlusOne {
         } else {
             return Arrays.copyOfRange(ans, 1, ans.length);
         }
+
+
+        /**
+         * Runtime: 0 ms, faster than 100.00% of Java online submissions for Plus One.
+         * Memory Usage: 42.4 MB, less than 63.67% of Java online submissions for Plus One.
+         */
+        /*
+        int n = digits.length;
+        int i=n-1;
+        while(i>=0 && digits[i]==9){
+            digits[i]=0;
+            i--;
+        }
+        if (i>=0) digits[i]+=1;
+        else{
+            int[] ans = new int[n+1];
+            ans[0]=1;
+            return ans;
+        }
+        return digits;
+         */
     }
 
 }
