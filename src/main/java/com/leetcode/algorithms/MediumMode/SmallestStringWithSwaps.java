@@ -95,6 +95,7 @@ public class SmallestStringWithSwaps {
         }
 
         int find(int key){
+            //compress path
             if(key != parent[key])
                 parent[key] = find(parent[key]);
             return parent[key];
@@ -105,6 +106,7 @@ public class SmallestStringWithSwaps {
             int rootY = find(value);
             if(rootX == rootY)
                 return;
+            // union according to rank
             if(rank[rootX] == rank[rootY]){
                 parent[rootX] = rootY;
                 rank[rootY] ++;
