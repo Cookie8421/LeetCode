@@ -71,6 +71,11 @@ public class MaximumLengthofRepeatedSubarray {
         /**
          * Runtime: 49 ms, faster than 88.97% of Java online submissions for Maximum Length of Repeated Subarray.
          * Memory Usage: 53.5 MB, less than 75.09% of Java online submissions for Maximum Length of Repeated Subarray.
+         * Complexity Analysis
+         *
+         *     Time Complexity: O((M+N)∗log(min(M,N))), where M,N are the lengths of A, B. The log factor is contributed by the binary search, while creating the rolling hashes is O(M+N)O(M + N)O(M+N). The checks for duplicate hashes are O(1). If we perform a naive check to make sure our answer is correct, it adds a factor of O(min(M,N)) to our cost of check, which keeps the complexity the same.
+         *
+         *     Space Complexity: O(M), the space used to store hashes and the subarrays in our final naive check.
          */
         int lo = 0, hi = Math.min(A.length, B.length) + 1;
         while (lo < hi) {
