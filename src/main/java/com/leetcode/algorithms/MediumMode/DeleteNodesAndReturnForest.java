@@ -52,7 +52,7 @@ public class DeleteNodesAndReturnForest {
     public List<TreeNode> delNodes(TreeNode root, int[] to_delete) {
         /**
          * Runtime: 5 ms, faster than 15.84% of Java online submissions for Delete Nodes And Return Forest.
-         * Memory Usage: 48.3 MB, less than 19.81% of Java online submissions for Delete Nodes And Return Forest.
+         * Memory Usage: 42.8 MB, less than 95.58% of Java online submissions for Delete Nodes And Return Forest.
          */
         for(int i = 0; i < to_delete.length; i++){
             toDelete.add(to_delete[i]);
