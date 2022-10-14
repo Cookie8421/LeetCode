@@ -26,11 +26,11 @@ package com.leetcode.algorithms.HardcoreMode;
  */
 public class ShortestPalindrome {
 
-    public String shortestPalindrome(String s) {
-        /**
+    /*public String shortestPalindrome(String s) {
+        *//**
          * Brute-Force
          * Time Limit Exceeded
-         */
+         *//*
         StringBuilder stringBuilder = new StringBuilder();
         int left = 0;
         int right = s.length()-1;
@@ -52,13 +52,12 @@ public class ShortestPalindrome {
         }
         stringBuilder.append(s);
         return stringBuilder.toString();
-    }
+    }*/
 
     /**
      * Runtime: 7 ms, faster than 76.01% of Java online submissions for Shortest Palindrome.
      * Memory Usage: 43.7 MB, less than 40.83% of Java online submissions for Shortest Palindrome.
      */
-    /*
     public String shortestPalindrome(String s) {
         if(s.isEmpty())
             return s;
@@ -92,6 +91,5 @@ public class ShortestPalindrome {
         }
         return lps[str.length()-1];
     }
-     */
 
 }
