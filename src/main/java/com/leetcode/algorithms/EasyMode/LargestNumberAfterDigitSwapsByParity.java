@@ -1,9 +1,5 @@
 package com.leetcode.algorithms.EasyMode;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.concurrent.DelayQueue;
-
 /**
  * You are given a positive integer num. You may swap any two digits of num that have the same parity (i.e. both odd digits or both even digits).
  *
