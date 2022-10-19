@@ -35,11 +35,11 @@ import java.util.Stack;
  */
 public class BasicCalculator {
 
-    public int calculate(String s) {
-        /**
-         * Runtime: 45 ms, faster than 22.04% of Java online submissions for Basic Calculator.
-         * Memory Usage: 46 MB, less than 23.76% of Java online submissions for Basic Calculator.
-         */
+    /**
+     * Runtime: 45 ms, faster than 22.04% of Java online submissions for Basic Calculator.
+     * Memory Usage: 46 MB, less than 23.76% of Java online submissions for Basic Calculator.
+     */
+    /*public int calculate(String s) {
         int ans = 0;
         boolean flag = false;
         Stack<Integer> numStack = new Stack<>();
@@ -86,14 +86,13 @@ public class BasicCalculator {
             ans+=numStack.pop();
         }
         return ans;
-    }
+    }*/
 
 
     /**
      * Runtime: 3 ms, faster than 99.24% of Java online submissions for Basic Calculator.
      * Memory Usage: 44.1 MB, less than 69.16% of Java online submissions for Basic Calculator.
      */
-    /*
     int idx; // this index traverse the string in one pass, between different level of recursion
     public int calculate(String s) {
         idx = 0; // Initialization should be here
@@ -115,6 +114,5 @@ public class BasicCalculator {
         }
         return res + sign * num; // last number is not processed yet
     }
-     */
 
 }
