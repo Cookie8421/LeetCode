@@ -41,12 +41,8 @@ public class TwoSumII_InputArrayIsSorted {
     /**
      * Runtime
      * 0 ms
-     * Beats
-     * 100%
      * Memory
      * 45.4 MB
-     * Beats
-     * 83.24%
      */
     public int[] twoSum(int[] numbers, int target) {
         if(numbers == null || numbers.length == 0){
