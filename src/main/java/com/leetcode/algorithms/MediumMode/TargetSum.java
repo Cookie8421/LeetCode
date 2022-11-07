@@ -68,6 +68,16 @@ public class TargetSum {
     /**
      * Runtime: 14 ms, faster than 77.33% of Java online submissions for Target Sum.
      * Memory Usage: 44.8 MB, less than 35.27% of Java online submissions for Target Sum.
+     * This problem is equal to "find all ways to partition the array into two groups so that the difference of the sum of the two groups is Math.abs(S)".
+     * Assume the sum of the two subsets is s1 and s2 (s1 >= s2), the sum of the array is sum:
+     *
+     * s1 + s2 = sum;
+     * s1 - s2 = Math.abs(S)
+     * So, s1 = (sum + Math.abs(S)) / 2.
+     * Now what we need to do is finding all subsets whose sum is s1, which is a typical 0-1 knapsack problem.
+     * We use dp[i][j] to denote the number of subsets whose sum is i for the first j elements in the array.
+     * Note that there could be zero in the array, dp[0][i] is no longer 0 as the normal knapsack problem,
+     * which means we need to process empty knapsack specially.
      */
     public int findTargetSumWays(int[] nums, int S) {
         int sum = 0;
