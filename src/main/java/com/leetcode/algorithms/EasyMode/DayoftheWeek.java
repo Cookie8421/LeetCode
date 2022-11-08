@@ -1,8 +1,5 @@
 package com.leetcode.algorithms.EasyMode;
 
-import java.util.Calendar;
-import java.util.Date;
-
 /**
  * Given a date, return the corresponding day of the week for that date.
  *
