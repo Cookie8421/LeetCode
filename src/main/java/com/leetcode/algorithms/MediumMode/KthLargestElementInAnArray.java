@@ -28,7 +28,44 @@ public class KthLargestElementInAnArray {
 
 
     /**
-     * Quick Sort Approach
+     * Counting Sort
+     * Runtime
+     * 4 ms
+     * Beats
+     * 96.93%
+     * Memory
+     * 56.4 MB
+     * Beats
+     * 26.98%
+     */
+    public int findKthLargest(int[] nums, int k) {
+        //find the MaxValue and MinValue
+        int max = nums[0];
+        int min = nums[0];
+        for(int i = 1; i < nums.length; i++){
+            max = Math.max(max, nums[i]);
+            min = Math.min(min, nums[i]);
+        }
+        //create Count Array
+        int[] countArr = new int[max-min+1];
+        for(int i = 0; i < nums.length; i++){
+            countArr[nums[i]-min]++;
+        }
+        //create new Sorted Array based on Count Array
+        int[] sortedArr = new int[nums.length];
+        int sortedArrPos = 0;
+        for(int i = countArr.length-1; i >= 0; i--){
+            for(int j = 0; j < countArr[i]; j++){
+                sortedArr[sortedArrPos++] = i+min;
+            }
+        }
+        return sortedArr[k-1];
+        //quickSelect(nums, 0, nums.length-1, k);
+        //return nums[nums.length - k];
+    }
+
+    /**
+     * Quick Sort
      * Runtime
      * 2199 ms
      * Beats
@@ -38,11 +75,6 @@ public class KthLargestElementInAnArray {
      * Beats
      * 5.90%
      */
-    public int findKthLargest(int[] nums, int k) {
-        quickSelect(nums, 0, nums.length-1, k);
-        return nums[nums.length - k];
-    }
-
     public void quickSelect(int[] nums, int _left, int _right, int k){
         int temp = 0;
         int left = _left;
