@@ -1,4 +1,4 @@
-package com.leetcode.algorithms.Custom.server;
+package com.leetcode.algorithms.Custom.nettyLearning;
 
 import static io.netty.handler.codec.http.HttpUtil.is100ContinueExpected;
 

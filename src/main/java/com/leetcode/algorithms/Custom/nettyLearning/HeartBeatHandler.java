@@ -1,4 +1,4 @@
-package com.leetcode.algorithms.Custom.server;
+package com.leetcode.algorithms.Custom.nettyLearning;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
