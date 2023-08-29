@@ -77,6 +77,13 @@ public class BufferTest {
         }
     }
 
+    public static void test3() {
+        // 分配直接缓冲区
+        ByteBuffer byteBuffer = ByteBuffer.allocateDirect(1024);
+        // 判断是直接缓冲区还是非直接缓冲区
+        System.out.println(byteBuffer.isDirect());
+    }
+
     public static void main(String[] args) {
 //        test1();
         test2();
