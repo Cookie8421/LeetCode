@@ -1,4 +1,4 @@
-package com.leetcode.algorithms.Custom.nettyLearning;
+package com.leetcode.algorithms.Custom.nettyLearning.HeartBeat;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;

@@ -1,4 +1,4 @@
-package com.leetcode.algorithms.Custom.nettyLearning;
+package com.leetcode.algorithms.Custom.nettyLearning.Socket;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

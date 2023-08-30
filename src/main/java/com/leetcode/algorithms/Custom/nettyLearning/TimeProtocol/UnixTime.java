@@ -1,4 +1,4 @@
-package com.leetcode.algorithms.Custom.nettyLearning;
+package com.leetcode.algorithms.Custom.nettyLearning.TimeProtocol;
 
 import java.util.Date;
 

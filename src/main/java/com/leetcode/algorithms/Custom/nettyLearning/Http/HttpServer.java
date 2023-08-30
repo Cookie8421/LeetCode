@@ -1,22 +1,24 @@
-package com.leetcode.algorithms.Custom.nettyLearning;
-
+package com.leetcode.algorithms.Custom.nettyLearning.Http;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
-import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
+
 import java.net.InetSocketAddress;
 
-public class TimeServer {
+/**
+ * netty server
+ * 2018/11/1.
+ */
+public class HttpServer {
 
     int port ;
 
-    public TimeServer(int port){
+    public HttpServer(int port){
         this.port = port;
     }
 
@@ -33,12 +35,7 @@ public class TimeServer {
             bootstrap.group(boss,work)
                     .handler(new LoggingHandler(LogLevel.DEBUG))
                     .channel(NioServerSocketChannel.class)
-                    .childHandler(new ChannelInitializer<SocketChannel>() { // (4)
-                        @Override
-                        public void initChannel(SocketChannel ch) throws Exception {
-                            ch.pipeline().addLast(new TimeEncoder(), new TimeServerHandler());
-                        }
-                    })
+                    .childHandler(new HttpServerInitializer())
                     .option(ChannelOption.SO_BACKLOG, 128)
                     .childOption(ChannelOption.SO_KEEPALIVE, true);
 
@@ -52,7 +49,7 @@ public class TimeServer {
     }
 
     public static void main(String[] args) throws Exception {
-        TimeServer server = new TimeServer(8090);
+        HttpServer server = new HttpServer(8090);
         server.start();
     }
 

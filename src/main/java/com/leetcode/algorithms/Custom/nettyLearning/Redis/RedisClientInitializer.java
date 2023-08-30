@@ -1,4 +1,4 @@
-package com.leetcode.algorithms.Custom.nettyLearning;
+package com.leetcode.algorithms.Custom.nettyLearning.Redis;
 
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;

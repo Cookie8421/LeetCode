@@ -1,10 +1,5 @@
 package com.leetcode.Learning.Note;
 
-import com.leetcode.algorithms.Custom.nettyLearning.HttpServer;
-import com.leetcode.algorithms.HardcoreMode.MinimumReplacementsToSortTheArray;
-import com.leetcode.algorithms.MediumMode.KthLargestElementInAnArray;
-import com.leetcode.algorithms.MediumMode.MinimumPenaltyforAShop;
-
 public class Test {
     public static void main(String[] args) throws Exception{
 
