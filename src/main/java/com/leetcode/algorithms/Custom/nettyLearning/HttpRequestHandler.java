@@ -13,6 +13,7 @@ import io.netty.handler.codec.http.HttpHeaderNames;
 import io.netty.handler.codec.http.HttpResponseStatus;
 import io.netty.handler.codec.http.HttpVersion;
 import io.netty.util.CharsetUtil;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -46,6 +47,8 @@ public class HttpRequestHandler extends SimpleChannelInboundHandler<FullHttpRequ
         response.headers().set(HttpHeaderNames.CONTENT_TYPE, "text/html; charset=UTF-8");
         //response.headers().set(HttpHeaderNames.CONTENT_TYPE, "text/plain; charset=UTF-8");
         // 将html write到客户端
+        if(true)
+            throw new IOException("1");
         ctx.writeAndFlush(response).addListener(ChannelFutureListener.CLOSE);
     }
 
@@ -64,6 +67,14 @@ public class HttpRequestHandler extends SimpleChannelInboundHandler<FullHttpRequ
          */
         // 出现异常就关闭
         cause.printStackTrace();
+        // 创建http响应
+        FullHttpResponse response = new DefaultFullHttpResponse(
+                HttpVersion.HTTP_1_1,
+                HttpResponseStatus.INTERNAL_SERVER_ERROR,
+                Unpooled.copiedBuffer(HttpResponseStatus.INTERNAL_SERVER_ERROR.reasonPhrase(), CharsetUtil.UTF_8));
+        // 设置头信息
+        response.headers().set(HttpHeaderNames.CONTENT_TYPE, "text/html; charset=UTF-8");
+        ctx.writeAndFlush(response).addListener(ChannelFutureListener.CLOSE);
         ctx.close();
     }
 
