@@ -1,30 +1,12 @@
 package com.leetcode.Learning.Note;
 
-import com.leetcode.algorithms.Custom.A;
-import com.leetcode.algorithms.EasyMode.*;
-import com.leetcode.algorithms.HardcoreMode.*;
-import com.leetcode.algorithms.MediumMode.*;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.time.DateFormatUtils;
-import reactor.core.publisher.Flux;
-
-import javax.xml.crypto.Data;
-import java.math.BigDecimal;
-import java.nio.file.Paths;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.time.Clock;
-import java.time.Instant;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
-import java.util.*;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+import com.leetcode.algorithms.Custom.nettyLearning.HttpServer;
+import com.leetcode.algorithms.HardcoreMode.MinimumReplacementsToSortTheArray;
+import com.leetcode.algorithms.MediumMode.KthLargestElementInAnArray;
+import com.leetcode.algorithms.MediumMode.MinimumPenaltyforAShop;
 
 public class Test {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
 
         /*ThreeSumClosest t = new ThreeSumClosest();
         System.out.println(t.threeSumClosest(new int[]{4,0,5,-5,3,3,0,-4,-5} , -2));*/
