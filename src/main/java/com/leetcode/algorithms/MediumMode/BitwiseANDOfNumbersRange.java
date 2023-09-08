@@ -36,6 +36,19 @@ public class BitwiseANDOfNumbersRange {
      * 25.94%
      */
     public int rangeBitwiseAnd(int left, int right) {
+        /*
+            Runtime
+            3 ms
+            Beats
+            100%
+            Memory
+            42.9 MB
+            Beats
+            46.35%
+        while(right>left)
+           right = right & right-1;
+        return right;
+         */
         int res = 0;
         if(left == right){
             res = left;
