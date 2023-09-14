@@ -3,10 +3,8 @@ package com.leetcode.algorithms.HardcoreMode;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.Stack;
 
 /**
@@ -65,7 +63,7 @@ public class ReconstructItinerary {
             graph.get(departure).add(arrival);
         }
 
-        // Step 3: Sort the lists of destinations
+        // Step 3: Sort the lists of destinations in smallest lexical order
         for (List<String> destinations : graph.values()) {
             Collections.sort(destinations);
         }
