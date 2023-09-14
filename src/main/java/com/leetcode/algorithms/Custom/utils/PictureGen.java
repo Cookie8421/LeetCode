@@ -1,7 +1,8 @@
-package com.leetcode.algorithms.Custom;
+package com.leetcode.algorithms.Custom.utils;
 
 import com.google.common.io.Files;
 
+import com.leetcode.algorithms.Custom.utils.PictureUtil;
 import java.io.File;
 import java.io.IOException;
 import java.util.Calendar;

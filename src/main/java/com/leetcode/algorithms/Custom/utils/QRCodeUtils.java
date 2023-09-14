@@ -1,5 +1,6 @@
-package com.leetcode.algorithms.Custom;
+package com.leetcode.algorithms.Custom.utils;
 
+import com.leetcode.algorithms.Custom.Base64Util;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;

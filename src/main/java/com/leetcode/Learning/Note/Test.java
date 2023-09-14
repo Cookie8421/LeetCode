@@ -1,5 +1,10 @@
 package com.leetcode.Learning.Note;
 
+import com.leetcode.algorithms.Custom.CombineLists;
+import com.leetcode.algorithms.HardcoreMode.Candy;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Test {
     public static void main(String[] args) throws Exception{
 
@@ -70,6 +75,11 @@ public class Test {
         String b = "15:30";
         System.out.println(StringUtils.compare(a, b));*/
 
+        /*MinimumNumberOfTapsToOpenToWaterAGarden m = new MinimumNumberOfTapsToOpenToWaterAGarden();
+        System.out.println(m.minTaps(35, new int[]{1,0,4,0,4,1,4,3,1,1,1,2,1,4,0,3,0,3,0,3,0,5,3,0,0,1,2,1,2,4,3,0,1,0,5,2}));*/
+
+        Candy c = new Candy();
+        System.out.println(c.candy(new int[]{1,2,2}));
     }
 
 

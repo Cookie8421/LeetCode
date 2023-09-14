@@ -1,4 +1,4 @@
-package com.leetcode.algorithms.Custom;
+package com.leetcode.algorithms.Custom.utils;
 
 import lombok.Getter;
 import lombok.Setter;

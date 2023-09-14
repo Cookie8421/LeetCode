@@ -1,4 +1,4 @@
-package com.leetcode.algorithms.Custom;
+package com.leetcode.algorithms.Custom.utils;
 
 /**
  * @author JoeyYoung
@@ -8,13 +8,10 @@ package com.leetcode.algorithms.Custom;
  * @createTime 2022/4/19 20:34
  */
 import javax.imageio.ImageIO;
-import javax.swing.text.Style;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
 import java.util.ArrayList;
 
 /**
