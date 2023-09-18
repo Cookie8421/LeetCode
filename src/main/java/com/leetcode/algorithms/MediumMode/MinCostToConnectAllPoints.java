@@ -69,7 +69,7 @@ public class MinCostToConnectAllPoints {
      *
      * Continue this process until all nodes have been visited.
      */
-    /*public int minCostConnectPoints(int[][] points) {
+    public int minCostConnectPoints(int[][] points) {
         int n = points.length;
         boolean[] visited = new boolean[n];
         HashMap<Integer, Integer> heap_dict = new HashMap<>();
@@ -101,7 +101,7 @@ public class MinCostToConnectAllPoints {
         }
 
         return mst_weight;
-    }*/
+    }
 
 
     /**
@@ -114,7 +114,7 @@ public class MinCostToConnectAllPoints {
      * Beats
      * 52.16%
      */
-    int[] find;
+    /*int[] find;
     int minCost = 0;
     int minGate;
     public int minCostConnectPoints(int[][] points) {
@@ -173,6 +173,6 @@ public class MinCostToConnectAllPoints {
         if(m1 != m2)
             find[m1] = m2;
         minGate -= 1;
-    }
+    }*/
 
 }
