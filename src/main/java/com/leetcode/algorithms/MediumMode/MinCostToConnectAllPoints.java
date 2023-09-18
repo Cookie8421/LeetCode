@@ -1,6 +1,9 @@
 package com.leetcode.algorithms.MediumMode;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.PriorityQueue;
 
 /**
@@ -66,7 +69,7 @@ public class MinCostToConnectAllPoints {
      *
      * Continue this process until all nodes have been visited.
      */
-    public int minCostConnectPoints(int[][] points) {
+    /*public int minCostConnectPoints(int[][] points) {
         int n = points.length;
         boolean[] visited = new boolean[n];
         HashMap<Integer, Integer> heap_dict = new HashMap<>();
@@ -98,6 +101,78 @@ public class MinCostToConnectAllPoints {
         }
 
         return mst_weight;
+    }*/
+
+
+    /**
+     * Runtime
+     * 352 ms
+     * Beats
+     * 28.33%
+     * Memory
+     * 57.7 MB
+     * Beats
+     * 52.16%
+     */
+    int[] find;
+    int minCost = 0;
+    int minGate;
+    public int minCostConnectPoints(int[][] points) {
+        int len = points.length;
+        int[][] distance = new int[(len*(len-1))/2][3];
+        find = new int[len+1];
+        minGate = len;
+        for(int i =0; i <= len; i++) {
+            find[i] = i;
+        }
+        int index = 0;
+        for(int i = 0 ; i < len; i++) {
+            for(int j = i+1; j < len; j++) {
+                int d = Math.abs(points[i][0] - points[j][0]) + Math.abs(points[i][1] - points[j][1]);
+
+                distance[index][0] = i;
+                distance[index][1] = j;
+                distance[index][2] = d;
+                index += 1;
+            }
+        }
+
+        Arrays.sort(distance, (a,b) -> a[2] - b[2]);
+
+        kruskal(distance);
+        if(minGate == 1) {
+            return minCost;
+        }
+
+        return -1;
+    }
+
+
+    private void kruskal(int[][] distance) {
+        int len = distance.length;
+
+        for(int i = 0; i < len; i++) {
+
+            if(findU(distance[i][0]) != findU(distance[i][1])) {
+                minCost += distance[i][2];
+                union(distance[i][0], distance[i][1]);
+            }
+        }
+    }
+
+    private int findU(int one) {
+        if(find[one] == one)
+            return one;
+        return find[one] = findU(find[one]);
+    }
+
+    private void union(int one, int two) {
+        int m1 = findU(one);
+        int m2 = findU(two);
+
+        if(m1 != m2)
+            find[m1] = m2;
+        minGate -= 1;
     }
 
 }
