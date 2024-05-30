@@ -33,12 +33,15 @@ public class ForkJoinTest extends RecursiveTask<Integer> {
         if(flag){
             for(int i = start;i <= end;i++){
                 sum += i;
+                System.out.println("执行累加，sum：" + sum + ",当前线程：" + Thread.currentThread().getName());
             }
         } else {
+            //分治
+            System.out.println("执行分配子任务" + ",当前线程：" + Thread.currentThread().getName());
             int middle = (start + end)/2;
             ForkJoinTest one = new ForkJoinTest(start,middle);
             ForkJoinTest two = new ForkJoinTest(middle+1,end);
-            //执行子任务
+            //子任务入队等待执行
             one.fork();
             two.fork();
             //获取子任务执行结果
