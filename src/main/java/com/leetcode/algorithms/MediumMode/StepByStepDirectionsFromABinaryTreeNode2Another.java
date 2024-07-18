@@ -57,20 +57,19 @@ public class StepByStepDirectionsFromABinaryTreeNode2Another {
         }
     }
 
-    TreeNode start = null;
-
-    Map<TreeNode, TreeNode> parentNodeMap = new HashMap<>();
-
-    Set<Integer> traversaedSet = new HashSet<>();
-
-    boolean flag = false;
-
-    
-
     /**
      * too much  recursion
      * memory limit exceed
      */
+
+    // TreeNode start = null;
+
+    // Map<TreeNode, TreeNode> parentNodeMap = new HashMap<>();
+
+    // Set<Integer> traversaedSet = new HashSet<>();
+
+    // boolean flag = false;
+    
     // public String getDirections(TreeNode root, int startValue, int destValue) {
     //     String res = "";
     //     start = root;
